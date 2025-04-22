@@ -39,3 +39,4 @@ class PokeCreate(PokeBase):
 class Pokemon(PokeBase, table=True):
     id: int=Field(default=None, primary_key=True)
     evoluciones: list[Evolucion]=Relationship(back_populates="pokemon")
+    date_formed: date | None

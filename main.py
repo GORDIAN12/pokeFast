@@ -1,17 +1,9 @@
 from typing import Annotated
 from fastapi import FastAPI, HTTPException, Path, Query, Depends
 from models import GenreURLChoices, PokeBase, PokeCreate, Pokemon, Evolucion
-from contextlib import asynccontextmanager
-from db import init_db, get_session 
+from db import init_db, get_session
 from sqlmodel import Session, select
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    init_db()
-    yield
-
-
-app=FastAPI(lifespan=lifespan)
+app=FastAPI()
 Bands = [
         {'id': 1, 'name': 'Bulbasaur', 'tipo1': "Planta",'tipo2':  "Veneno", 'evoluciones': [
             {'subname': 'Ivysaur', 'fecha_aparicion': '2001-12-28'},

@@ -3,9 +3,9 @@ POST http://localhost:8000/pokemons/
 Content-Type: application/json
 
 {
-  "name": "Mewtwo",
-  "tipo1": "Psiquico",
-  "tipo2": ""
+  "name": "charmander",
+  "tipo1": "fuego",
+  "tipo2": "Normal"
 
 }
 ###
