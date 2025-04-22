@@ -1,0 +1,12 @@
+
+POST http://localhost:8000/pokemons/
+Content-Type: application/json
+
+{
+  "name": "Mewtwo",
+  "tipo1": "Psiquico",
+  "tipo2": ""
+
+}
+###
+GET http://localhost:8000/pokemons/3
