@@ -1,23 +1,30 @@
-# Pokémon API with FastAPI
+# Pokémon API 
 
-A **RESTful API built with FastAPI** to manage Pokémon and their evolutions.  
-This project demonstrates how to build a backend API using **FastAPI, SQLModel, and SQLite**, including data validation, filtering, and relational models.
+A **RESTful API built with FastAPI** to manage Pokémon and their evolutions.
 
-The API allows users to **create Pokémon, retrieve them, filter by type, and search by name**.
+This project demonstrates how to build a **modern backend API** using **FastAPI, SQLModel, and SQLite**, including data validation, filtering, and relational database models.
+
+The API allows users to:
+
+- Create Pokémon
+- Retrieve Pokémon
+- Filter Pokémon by type
+- Search Pokémon by name
+- Store Pokémon evolutions
 
 ---
 
 # Features
 
-- RESTful API built with **FastAPI**
-- Database management using **SQLModel + SQLite**
-- Data validation using **Pydantic**
+- RESTful API with **FastAPI**
+- Database ORM using **SQLModel**
+- **SQLite database**
+- **Pydantic validation**
 - Pokémon evolution relationships
 - Filtering Pokémon by type
 - Searching Pokémon by name
-- CRUD operations
-- Database session dependency injection
-- Optional evolution creation when adding Pokémon
+- Dependency injection for database sessions
+- Automatic interactive API documentation
 
 ---
 
@@ -28,23 +35,23 @@ The API allows users to **create Pokémon, retrieve them, filter by type, and se
 - **SQLModel**
 - **SQLite**
 - **Pydantic**
-- **Alembic** (for migrations)
+- **Uvicorn**
+- **Alembic** (database migrations)
 
 ---
-```bash
 
-# Project Structure
 pokemon-fastapi/
 │
-├── main.py
-├── models.py
-├── db.py
-├── db.sqlite
-├── api.http
+├── main.py # FastAPI application and endpoints
+├── models.py # SQLModel database models
+├── db.py # Database connection and session
+├── db.sqlite # SQLite database
+├── api.http # HTTP requests for testing
 └── README.md
-```
+
 
 ---
+
 # Database Models
 
 ## Pokemon
@@ -70,29 +77,43 @@ pokemon-fastapi/
 | poke_id | int | Foreign key referencing Pokémon |
 
 ---
-# Get Pokemons
+
+# API Endpoints
+
+## Get All Pokémon
+
+
+# Project Structure
+
+GET /pokemons
+
 
 Optional query parameters:
 
-- `tipo` → filter by Pokémon type
-- `q` → search Pokémon by name
+| Parameter | Description |
+|-----------|-------------|
+| tipo | Filter Pokémon by type |
+| q | Search Pokémon by name |
 
 Example:
-```bash
 
 GET /pokemons?tipo=fuego
 GET /pokemons?q=char
-```
 
+
+---
 
 ## Get Pokémon by ID
-
-```bash
 GET /pokemons/{id}
-```
+GET /pokemons/3
 
 
-Example request body:
+---
+
+## Create Pokémon
+POST /pokemons
+
+Example request:
 
 ```json
 {
@@ -100,35 +121,33 @@ Example request body:
   "tipo1": "Fuego",
   "tipo2": "Normal"
 }
+
 ```
-## Installation
+Example with evolutions
+```json
+{
+  "name": "Bulbasaur",
+  "tipo1": "Planta",
+  "tipo2": "Veneno",
+  "evoluciones": [
+    {
+      "subname": "Ivysaur",
+      "fecha_aparicion": "2001-12-28"
+    },
+    {
+      "subname": "Venusaur",
+      "fecha_aparicion": "2001-12-28"
+    }
+  ]
+}
 
-Clone the repository:
+```
 
-```bash
+## Instalation
+```bash 
 git clone https://github.com/your-username/pokemon-fastapi.git
 cd pokemon-fastapi
-```
-```bash
 pip install fastapi uvicorn sqlmodel pydantic
-
-```
-
-# Running the API
-
-Run the FastAPI server:
-```bash
 uvicorn main:app --reload
-```
-# The API will be available at:
-```bash
-http://localhost:8000
 
 ```
-
-# Alternative documentation
-
-```bash
-http://localhost:8000/redoc
-```
-
