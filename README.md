@@ -39,14 +39,15 @@ The API allows users to:
 - **Alembic** (database migrations)
 
 ---
+
 ```bash
 pokemon-fastapi/
 │
-├── main.py # FastAPI application and endpoints
-├── models.py # SQLModel database models
-├── db.py # Database connection and session
-├── db.sqlite # SQLite database
-├── api.http # HTTP requests for testing
+├── main.py
+├── models.py
+├── db.py
+├── db.sqlite
+├── api.http
 └── README.md
 ```
 
