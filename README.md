@@ -102,6 +102,7 @@ GET /pokemons?q=char
 GET /pokemons/{id}
 
 GET /pokemons/3
+
 ---
 
 ## Create Pokémon
