@@ -39,7 +39,7 @@ The API allows users to:
 - **Alembic** (database migrations)
 
 ---
-
+```bash
 pokemon-fastapi/
 │
 ├── main.py # FastAPI application and endpoints
@@ -48,7 +48,7 @@ pokemon-fastapi/
 ├── db.sqlite # SQLite database
 ├── api.http # HTTP requests for testing
 └── README.md
-
+```
 
 ---
 
