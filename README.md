@@ -78,16 +78,10 @@ pokemon-fastapi/
 | poke_id | int | Foreign key referencing Pokémon |
 
 ---
-
-# API Endpoints
-
-## Get All Pokémon
-
-
 # Project Structure
+## API Endpoints
 
 GET /pokemons
-
 
 Optional query parameters:
 
@@ -106,9 +100,8 @@ GET /pokemons?q=char
 
 ## Get Pokémon by ID
 GET /pokemons/{id}
+
 GET /pokemons/3
-
-
 ---
 
 ## Create Pokémon
