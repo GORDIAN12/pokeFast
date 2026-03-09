@@ -143,7 +143,7 @@ Example with evolutions
 
 ```
 
-## Instalation
+## Installation
 ```bash 
 git clone https://github.com/your-username/pokemon-fastapi.git
 cd pokemon-fastapi
